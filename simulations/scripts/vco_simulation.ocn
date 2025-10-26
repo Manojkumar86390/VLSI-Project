@@ -1,0 +1,22 @@
+; Cadence OCEAN Script for VCO Simulation
+simulator( 'spectre )
+design( "/path/to/vco_schematic/netlist" )
+
+; Analysis setup
+analysis('tran ?stop "10n" ?errpreset "conservative")
+analysis('dc ?param "VCTRL" ?start "0.3" ?stop "1.5" )
+
+; Save signals
+save('v "/out_p")
+save('v "/out_n")
+save('v "/vctrl")
+
+; Run simulation
+run()
+
+; Frequency calculation
+freq = frequency(VF("/out_p"))
+print("Oscillation Frequency: " freq " Hz")
+
+; Plot results
+plot( VF("/out_p") VF("/out_n") )
