@@ -1,0 +1,46 @@
+* VCO Current-Starved Ring Oscillator - 180 nm CMOS
+* 5-stage design with control voltage input
+
+.SUBCKT vco_5stage vdd vss vctrl out_n out_p
+* Current Starving PMOS transistors
+MP1 net1 vctrl vdd vdd pch w=2u l=180n
+MP2 net2 vctrl vdd vdd pch w=2u l=180n
+MP3 net3 vctrl vdd vdd pch w=2u l=180n
+MP4 net4 vctrl vdd vdd pch w=2u l=180n
+MP5 net5 vctrl vdd vdd pch w=2u l=180n
+
+* Current Starving NMOS transistors
+MN1 net1 vctrl vss vss nch w=1u l=180n
+MN2 net2 vctrl vss vss nch w=1u l=180n
+MN3 net3 vctrl vss vss nch w=1u l=180n
+MN4 net4 vctrl vss vss nch w=1u l=180n
+MN5 net5 vctrl vss vss nch w=1u l=180n
+
+* Inverter Stages
+* Stage 1
+MP11 net2 net1 vdd vdd pch w=5u l=180n
+MN11 net2 net1 vss vss nch w=2u l=180n
+
+* Stage 2  
+MP12 net3 net2 vdd vdd pch w=5u l=180n
+MN12 net3 net2 vss vss nch w=2u l=180n
+
+* Stage 3
+MP13 net4 net3 vdd vdd pch w=5u l=180n
+MN13 net4 net3 vss vss nch w=2u l=180n
+
+* Stage 4
+MP14 net5 net4 vdd vdd pch w=5u l=180n
+MN14 net5 net4 vss vss nch w=2u l=180n
+
+* Stage 5 (Output Stage)
+MP15 out_int net5 vdd vdd pch w=5u l=180n
+MN15 out_int net5 vss vss nch w=2u l=180n
+
+* Output Buffer
+MP_buf out_p out_int vdd vdd pch w=10u l=180n
+MN_buf out_p out_int vss vss nch w=5u l=180n
+MP_buf_inv out_n out_p vdd vdd pch w=10u l=180n
+MN_buf_inv out_n out_p vss vss nch w=5u l=180n
+
+.ENDS vco_5stage
