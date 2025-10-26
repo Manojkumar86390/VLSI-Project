@@ -35,8 +35,18 @@ This project presents the design, simulation, and layout of a Voltage-Controlled
 3. View layout files in `layout/` folder
 
 ## Simulation Results
-*Add your simulation images here when ready*
+
+### Transient Analysis
+![VCO Transient Response](simulations/vco_transient_sim.png)
+
+### Frequency vs Control Voltage
+![Frequency Tuning Characteristics](simulations/vco_frequency_vs_vctrl.png)
+
+### Layout
+![VCO Layout](layout/vcolayout.png)
 
 ## Author
 **Manojkumar86390**  
 VLSI Design Engineer
+
+
