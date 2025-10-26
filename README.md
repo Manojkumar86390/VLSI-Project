@@ -51,6 +51,9 @@ This project presents the design, simulation, and layout of a Voltage-Controlled
 1. Open schematic files in `schematic/` folder
 2. Run simulation scripts from `simulations/scripts/`
 3. View layout files in `layout/` folder
+4. 
+### Layout
+![VCO Layout](layout/vcolayout.png)
 
 ## Simulation Results
 
@@ -61,7 +64,7 @@ This project presents the design, simulation, and layout of a Voltage-Controlled
 ![Frequency Tuning Characteristics](simulations/vco_frequency_vs_vctrl.png)
 
 ### Layout
-![VCO Layout](layout/vcolayout.png)
+![VCO Layout](layout/vco_graph.png)
 
 ## Author
 **Manojkumar86390**  
