@@ -13,6 +13,23 @@ This project presents the design, simulation, and layout of a Voltage-Controlled
 | Frequency Range        | 500 MHz - 2.5 GHz         |
 | Power Consumption      | 1.2 mW @ 1.8 GHz          |
 
+## Circuit Schematic
+
+![VCO Schematic Diagram](schematic/vcoschematic.png)
+
+### Architecture Description
+- **Topology**: Current-starved ring oscillator
+- **Stages**: 5 inverter stages for 180° phase shift
+- **Control**: Vctrl adjusts current in starved transistors
+- **Output**: Buffered differential outputs
+
+### Key Components
+- **MP1-MP5**: PMOS current starving transistors (W=2μ, L=180n)
+- **MN1-MN5**: NMOS current starving transistors (W=1μ, L=180n)  
+- **MP11-MP15**: PMOS inverter transistors (W=5μ, L=180n)
+- **MN11-MN15**: NMOS inverter transistors (W=2μ, L=180n)
+- **Output Buffer**: Enhanced drive strength inverters
+
 ## Repository Structure
 - [`schematic/`](schematic/) - Circuit schematics and netlists
 - [`simulations/`](simulations/) - Simulation results and scripts
