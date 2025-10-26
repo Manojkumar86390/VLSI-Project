@@ -17,6 +17,55 @@ This project presents the design, simulation, and layout of a Voltage-Controlled
 
 ![VCO Schematic Diagram](schematic/vcoschematic.png)
 
+### Block Diagram
+┌─────────────────────────────────────────────────────────────┐
+│ VCO CORE (5-Stage Ring) │
+│ │
+│ Vctrl ──────┬──────────┬──────────┬──────────┬─────────┐ │
+│ │ │ │ │ │ │
+│ VDD ──────► │ Stage 1 │ ──────► │ Stage 2 │ ──────► ... │
+│ │ │ │ │ │ │
+│ VSS ──────► │ (Inv+CS) │ │ (Inv+CS) │ │ │
+│ └──────────┘ └──────────┘ │ │
+│ │ │
+│ Stage 5 Output ────────────────────────────────────────┘ │
+│ │ │
+└──────────────┼───────────────────────────────────────────────┘
+│
+▼
+┌─────────────────────────────────────────────────────────────┐
+│ OUTPUT BUFFER STAGE │
+│ │
+│ Single-ended ───► Buffer Inverter ───► Complementary │
+│ Input (Enhanced Drive) Output Drivers │
+│ │
+│ Vout_p ────┐ │
+│ │ Differential │
+│ Vout_n ────┘ Outputs │
+└─────────────────────────────────────────────────────────────┘
+
+### Detailed Stage Architecture
+
+Single Stage Implementation:
+VDD
+│
+┌──┴──┐
+│ MPx │ Current Starving PMOS (W=2μ)
+└──┬──┘
+│
+┌──────┴──────┐
+│ Inverter │ ───► To Next Stage
+│ (MPx+MNx) │
+└──────┬──────┘
+│
+┌──┴──┐
+│ MNx │ Current Starving NMOS (W=1μ)
+└──┬──┘
+│
+VSS
+
+Control: Vctrl → MPx Gate, MNx Gate
+
 ### Architecture Description
 - **Topology**: Current-starved ring oscillator
 - **Stages**: 5 inverter stages for 180° phase shift
