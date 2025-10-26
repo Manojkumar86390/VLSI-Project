@@ -18,30 +18,8 @@ This project presents the design, simulation, and layout of a Voltage-Controlled
 ![VCO Schematic Diagram](schematic/vcoschematic.png)
 
 ### Block Diagram
-+---------------------------------------------------+
-|                 Control Voltage (Vctrl)          |
-|   (Sets bias current for tuning oscillation freq)|
-+----------------------+----------------------------+
-                       |
-                       v
-+---------------------------------------------------+
-|           Bias Current Generator / Control        |
-|   (PMOS/NMOS transistors at top & bottom rows)   |
-+----------------------+----------------------------+
-                       |
-                       v
-+---------------------------------------------------+
-|           5 Cascaded Delay Stages                |
-|   (Each stage = inverter pair with current-starve|
-|    transistors for frequency control)            |
-+----------------------+----------------------------+
-                       |
-                       v
-+---------------------------------------------------+
-|                  Output Oscillation (Vout)       |
-|   (Square wave or digital oscillating signal)    |
-+---------------------------------------------------+
 
+![VCO Schematic Diagram](blockdiagram/vcoblockdiagram.png)
 ### Architecture Description
 - **Topology**: Current-starved ring oscillator
 - **Stages**: 5 inverter stages for 180° phase shift
