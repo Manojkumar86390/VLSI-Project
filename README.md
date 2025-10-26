@@ -58,7 +58,7 @@ This project presents the design, simulation, and layout of a Voltage-Controlled
 ## Simulation Results
 
 ### Transient Analysis
-![VCO Transient Response](simulations/vco_transient_sim.png)
+![VCO Transient Response](simulations/vco_graph11.png)
 
 ### Frequency vs Control Voltage
 ![Frequency Tuning Characteristics](simulations/vco_frequency_vs_vctrl.png)
