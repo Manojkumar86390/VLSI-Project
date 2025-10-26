@@ -17,9 +17,7 @@ This project presents the design, simulation, and layout of a Voltage-Controlled
 
 ![VCO Schematic Diagram](schematic/vcoschematic.png)
 
-### Block Diagram
 
-![VCO Schematic Diagram](blockdiagram/vcoblockdiagram.png)
 ### Architecture Description
 - **Topology**: Current-starved ring oscillator
 - **Stages**: 5 inverter stages for 180° phase shift
