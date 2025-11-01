@@ -60,30 +60,7 @@ This project presents the design, simulation, and layout of a Voltage-Controlled
 ### Transient Analysis
 ![VCO Transient Response](simulations/vco_graph.png)
 
-TIME VS VOLTAGE: 
 
-| Time (s) | Voltage (V)     |
-|-----------|-----------------|
-| 0.5       | 1.79            |
-| 1.0       | 1.690           |
-| 1.5       | 1.609           |
-| 2.0       | 1.430           |
-| 2.5       | 1.213           |
-| 3.0       | 0.874           |
-| 3.5       | 0.241           |
-| 4.0       | -0.000473       |
-| 4.5       | 0.00209         |
-| 5.0       | 0.01571         |
-| 5.5       | 0.017094        |
-| 6.0       | 0.025953        |
-| 6.5       | 0.11597         |
-| 7.0       | 1.115           |
-| 7.5       | 1.818           |
-| 8.0       | 1.786           |
-| 8.5       | 1.670           |
-| 9.0       | 1.562           |
-| 9.5       | 1.400           |
-| 10.0      | 1.160           |
 
 ### Frequency vs Control Voltage
 ![Frequency Tuning Characteristics](simulations/vco_frequency_vs_vctrl.png)
