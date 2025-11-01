@@ -11,7 +11,7 @@ This project presents the design, simulation, and layout of a Voltage-Controlled
 | Number of Stages       | 5                         |
 | Control Voltage Range  | 0.3 V - 1.5 V             |
 | Frequency Range        | 500 MHz - 2.5 GHz         |
-| Power Consumption      | 1.2 mW @ 1.8 GHz          |
+| Power Consumption      | 0.5 mW @ 1.8 GHz          |
 
 ## Circuit Schematic
 
