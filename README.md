@@ -15,7 +15,7 @@ This project presents the design, simulation, and layout of a Voltage-Controlled
 
 ## Circuit Schematic
 
-![VCO Schematic Diagram](schematic/vcoschematic.png)
+![VCO Schematic Diagram | Pre Layout](schematic/vcoschematic.png)
 
 
 ### Architecture Description
@@ -53,7 +53,7 @@ This project presents the design, simulation, and layout of a Voltage-Controlled
 3. View layout files in `layout/` folder
 4. 
 ### Layout
-![VCO Layout](layout/vcolayout.png)
+![VCO Layout | Post Layout](layout/vcolayout.png)
 
 ## Simulation Results
 
