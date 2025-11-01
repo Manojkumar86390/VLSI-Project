@@ -13,9 +13,9 @@ This project presents the design, simulation, and layout of a Voltage-Controlled
 | Frequency Range        | 500 MHz - 2.5 GHz         |
 | Power Consumption      | 0.5 mW @ 1.8 GHz          |
 
-## Circuit Schematic
+## Circuit Schematic | Pre Layout
 
-![VCO Schematic Diagram | Pre Layout](schematic/vcoschematic.png)
+![VCO Schematic Diagram ](schematic/vcoschematic.png)
 
 
 ### Architecture Description
@@ -52,8 +52,8 @@ This project presents the design, simulation, and layout of a Voltage-Controlled
 2. Run simulation scripts from `simulations/scripts/`
 3. View layout files in `layout/` folder
 4. 
-### Layout
-![VCO Layout | Post Layout](layout/vcolayout.png)
+### Layout | Post Layout
+![VCO Layout ](layout/vcolayout.png)
 
 ## Simulation Results
 
