@@ -16,7 +16,7 @@ Unlike semi-custom or synthesized designs, this project follows a **full-custom 
 - To verify **post-layout performance** and compare with schematic simulation results.
 
 ## 🏗 Architecture
-![VCO block diagram ](schematic/blockdiagram.png)
+![Block Diagram](./images/block diagram.png)
 
 
 ## ⚙️ Design Flow
