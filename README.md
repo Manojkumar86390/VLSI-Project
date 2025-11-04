@@ -3,6 +3,53 @@
 ## Overview
 This project presents the design, simulation, and layout of a Voltage-Controlled Oscillator (VCO) implemented in 180 nm CMOS technology using Cadence Virtuoso.
 
+## 🧩 Abstract
+This project presents the **full-custom design and implementation of a Voltage-Controlled Oscillator (VCO)** using the **180 nm CMOS technology node**.  
+The VCO is a crucial building block in PLLs (Phase-Locked Loops), frequency synthesizers, and clock generation systems.  
+Unlike semi-custom or synthesized designs, this project follows a **full-custom approach**, focusing on transistor-level design, schematic verification, and physical layout implementation.
+
+
+## 🎯 Objectives
+- To design a **fully functional VCO** operating in the MHz range using **180 nm CMOS technology**.  
+- To perform **schematic-level design and simulation** to verify oscillation and frequency tuning.  
+- To carry out **layout design** ensuring proper device matching and minimal parasitic effects.  
+- To verify **post-layout performance** and compare with schematic simulation results.
+
+🏗 Architecture
+
+
+
+## ⚙️ Design Flow
+
+1. **Specification Definition**  
+   - Technology: 180 nm CMOS  
+   - Supply Voltage: (e.g., 1.8 V)  
+   - Frequency Range: (e.g., 50 MHz – 120 MHz)  
+   - Control Voltage Range: (e.g., 0 V – 1.2 V)  
+   - Output Type: Differential / Single-ended
+
+2. **Schematic Design**  
+   - Circuit designed at transistor level using MOS devices.  
+   - Biasing network and delay elements configured for frequency control.  
+   - Verified for startup conditions and oscillation frequency.
+
+3. **Simulation & Verification**  
+   - Performed transient analysis to measure oscillation frequency and amplitude.  
+   - Frequency vs Control Voltage (V<sub>ctrl</sub>) curve obtained.  
+   - Verified linearity, tuning range, and power consumption.
+
+4. **Layout Design**  
+   - Layout drawn manually following **full-custom design flow**.  
+   - Device matching and symmetry ensured.  
+   - Design Rule Check (DRC) and Layout Versus Schematic (LVS) completed successfully.  
+   - Parasitic extraction performed for post-layout simulations.
+
+5. **Post-Layout Simulation**  
+   - Extracted layout netlist simulated to observe frequency deviation and parasitic effects.  
+   - Compared schematic vs layout simulation results.
+  
+     
+- 
 ## Key Specifications
 | Parameter              | Value                     |
 |------------------------|---------------------------|
