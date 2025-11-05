@@ -16,14 +16,28 @@ This project presents the design, simulation, and layout of a Voltage-Controlled
 - 🧾 Verified through DRC, LVS, and parasitic extraction  
 - 🔍 Realistic frequency tuning observed via transient analysis
 
-### 🔗 **Contents**
-- [🧠 Introduction](#project-overview)  
-- [🧰 Tools & Technologies](#tools--technologies)  
-- [📊 Performance Comparison](#performance-comparison)  
-- [📈 Output Characteristics](#output-characteristics)  
-- [📘 Learning Outcomes](#learning-outcomes)  
-- [❓ FAQ](#-frequently-asked-questions-faq)
-  
+---
+
+## 📦 Table of Contents
+- [Abstract](#-abstract)
+- [Objectives](#-objectives)
+- [Design Flow](#-design-flow)
+- [Key Specifications](#-key-specifications)
+- [Schematic & Layout](#-schematic--layout)
+- [Transistor Specifications](#-transistor-specifications)
+- [Verification Summary](#-design-verification-summary)
+- [Procedure in Cadence](#-procedure-to-implement-in-cadence)
+- [Applications](#-applications-of-5-stage-vco)
+- [Performance Comparison](#-performance-comparison)
+- [Learning Outcomes](#-learning-outcomes)
+- [References](#-references)
+- [Acknowledgements](#-acknowledgements)
+- [Contact](#-contact)
+- [Author](#-author)
+
+---
+
+
 ## 🧩 Abstract
 This project presents the **full-custom design and implementation of a Voltage-Controlled Oscillator (VCO)** using the **180 nm CMOS technology node**.  
 The VCO is a crucial building block in PLLs (Phase-Locked Loops), frequency synthesizers, and clock generation systems.  
@@ -35,9 +49,19 @@ Unlike semi-custom or synthesized designs, this project follows a **full-custom 
 - To perform **schematic-level design and simulation** to verify oscillation and frequency tuning.  
 - To carry out **layout design** ensuring proper device matching and minimal parasitic effects.  
 - To verify **post-layout performance** and compare with schematic simulation results.
-
-## 🏗 Architecture
-![Block Diagram](./images/block_diagram.png)
+## Circuit Architecture
+**Block Diagram**
+ -                 Control Voltage (Vctrl) 
+                              │
+        ┌─ ───────────────────┼────────────────────┐
+        │                     ▼                    │
+        │  ┌─────┐  ┌─────┐  ┌─────┐  ┌─────┐  ┌─────┐
+        └──┤ INV ├──┤ INV ├──┤ INV ├──┤ INV ├──┤ INV ├──┐
+           │  1  │  │  2  │  │  3  │  │  4  │  │  5  │  │
+           └─────┘  └─────┘  └─────┘  └─────┘  └─────┘  │
+             ▲                                          │
+             └──────────────────────────────────────────┘
+                        Output
 
 
 ## ⚙️ Design Flow
@@ -84,6 +108,7 @@ Unlike semi-custom or synthesized designs, this project follows a **full-custom 
 ## Circuit Schematic | Pre Layout
 
 ![VCO Schematic Diagram ](schematic/vcoschematic.png)
+*Figure 1: Complete 5-stage ring oscillator schematic showing current-starved inverter topology with control voltage input*
 
 
 ### Architecture Description
@@ -92,12 +117,15 @@ Unlike semi-custom or synthesized designs, this project follows a **full-custom 
 - **Control**: Vctrl adjusts current in starved transistors
 - **Output**: Buffered differential outputs
 
-### Key Components
-- **MP1-MP5**: PMOS current starving transistors (W=2μ, L=180n)
-- **MN1-MN5**: NMOS current starving transistors (W=1μ, L=180n)  
-- **MP11-MP15**: PMOS inverter transistors (W=5μ, L=180n)
-- **MN11-MN15**: NMOS inverter transistors (W=2μ, L=180n)
-- **Output Buffer**: Enhanced drive strength inverters
+## ⚙️ Transistor Specifications
+
+| **Label** | **Type** | **Function / Role** | **Dimensions (W/L)** |
+|------------|-----------|----------------------|----------------------|
+| **MP1 – MP5**  | PMOS | Current-starving transistors | W = 2 µm, L = 180 nm |
+| **MN1 – MN5**  | NMOS | Current-starving transistors | W = 2 µm, L = 180 nm |
+| **MP11 – MP15** | PMOS | Inverter transistors | W = 2 µm, L = 180 nm |
+| **MN11 – MN15** | NMOS | Inverter transistors | W = 2 µm, L = 180 nm |
+
 
 ## Repository Structure
 - [`schematic/`](schematic/) - Circuit schematics and netlists
@@ -121,6 +149,17 @@ Unlike semi-custom or synthesized designs, this project follows a **full-custom 
 | Linearity         |    Low   |            **High**           |     High    |
 | Output Shape      |  Square  | **Improved (Closer to Sine)** | Very Smooth |
 
+## 📊 Design Verification Summary
+
+| **Criterion**          | **Target**           | **Achieved**                    | **Status**       |
+|--------------------------|----------------------|----------------------------------|------------------|
+| **Oscillation**          | Yes                  | ✓ Yes                            | ✅ Pass          |
+| **Frequency Range**      | 500 MHz – 2 GHz      | 1.33 GHz @ Vc = 930 mV          | ✅ Pass          |
+| **Rail-to-Rail Swing**   | Yes                  | ✓ Yes (1.6 V)                    | ✅ Pass          |
+| **Stable Operation**     | Yes                  | ✓ Yes                            | ✅ Pass          |
+| **Power Consumption**    | < 5 mW               | ✓ 0.579 mW                       | 🌟 Excellent     |
+| **DRC**                  | Pass                 | ✓ Zero Errors                    | ✅ Pass          |
+| **LVS**                  | Pass                 | ✓ Successful                     | ✅ Pass          |
 
 
 ## ⚙️ Procedure to Implement 5-Stage VCO in Cadence Virtuoso (180 nm Full-Custom)
@@ -181,7 +220,7 @@ Unlike semi-custom or synthesized designs, this project follows a **full-custom 
 ### 8. Create the Layout
 - In Library Manager:
 
-  # File → New → Cell View → Layout
+   File → New → Cell View → Layout
 - Place the same devices (transistors) from schematic.
 - Route interconnections manually.
 - Maintain **symmetry and matching** between stages.
@@ -221,6 +260,75 @@ Unlike semi-custom or synthesized designs, this project follows a **full-custom 
 - Post-layout results slightly lower in frequency (due to parasitic delay).
 
 ---
+## Circuit Equations
+### Oscillation Frequency
+                                  f_osc = 1 / (2 × N × t_d) 
+Where:
+
+- N = Number of stages (5)
+- t_d = Delay per stage
+### Delay per Stage
+                                   t_d = (C_L × V_DD) / I_D    
+Where:
+- C_L = Load capacitance
+- V_DD = Supply voltage
+- I_D = Drain current (controlled by Vctrl)                
+## 🚀 Applications of 5-Stage VCO
+| **Domain**                       | **Application**                                                                                                                |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| 📡 **Communication Systems**     | Used in frequency synthesizers and phase-locked loops (PLLs) for RF transmitters and receivers.                                |
+| 🕹️ **Clock Generation**         | Provides high-frequency clock signals in microprocessors, data converters, and digital systems.                                |
+| 📶 **Signal Modulation**         | Essential in FM (Frequency Modulation) and FSK (Frequency Shift Keying) transmitters for generating modulated carrier signals. |
+| 🔄 **Phase-Locked Loops (PLLs)** | Serves as the core element in PLL circuits for frequency tracking, clock recovery, and jitter reduction.                       |
+| ⚙️ **Sensor Interfaces**         | Converts analog sensor signals into frequency variations in voltage-controlled oscillators used for signal conditioning.       |
+| 💡 **Test & Measurement**        | Utilized in function generators, oscilloscopes, and on-chip testing circuits requiring tunable frequency outputs.              |
+
+
+**Figure:** General flow of full-custom VCO design in Cadence Virtuoso.
+
+### Layout | Post Layout
+| **Parameter**                 | **Description**                                     |
+| ----------------------------- | --------------------------------------------------- |
+| 🧰 **Tool Used**              | Cadence Virtuoso Layout Editor                      |
+| 🧪 **Technology Node**        | 180 nm CMOS                                         |
+| 🧠 **Design Type**            | 5-Stage Voltage Controlled Oscillator (VCO)         |
+| ⚙️ **Design Flow Step**       | Layout Design (Post-Schematic Implementation)       |
+| 📏 **Verification Performed** | DRC (Design Rule Check) & LVS (Layout vs Schematic) |
+| ⚡ **Output Node**             | `Vout`                                              |
+
+![VCO Layout ](layout/vcolayout.png)
+
+## Simulation Results
+### Time vs Control Voltage
+![VCO Transient Response](simulations/o-pgraph.bmp)
+
+| **Parameter**                 | **Description**                                                                                                                 |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| 🧰 **Tool Used**              | Cadence Virtuoso ADE XL                                                                                                         |
+| 🧪 **Technology Node**        | 180 nm CMOS                                                                                                                     |
+| ⏱️ **Simulation Type**        | Transient Analysis                                                                                                              |
+| 🔋 **Power Supply (VDD)**     | 1.8 V                                                                                                                           |
+| 📈 **Observation**            | Oscillations are clearly observed at the output node `Vout`, indicating stable operation of the 5-stage VCO circuit.            |
+| ⚙️ **Output Characteristics** | The waveform demonstrates a periodic oscillation with nearly uniform amplitude and frequency stability over the simulated time. |
+
+
+
+### Transient Analysis with power
+![VCO Transient Response](simulations/vco_graph.png)
+
+
+## Average power calculation
+The average(getData("pwr")) function was used in the Calculator tool to compute the average power consumption over the transient simulation period
+| **Parameter**             | **Description**          |
+| ------------------------- | ------------------------ |
+| 🧰 **Tool Used**          | Cadence Virtuoso ADE XL  |
+| 🧪 **Technology Node**    | 180 nm CMOS              |
+| ⏱️ **Simulation Type**    | Transient Analysis       |
+| ⚡ **Extracted Parameter** | Average Power = 579.1 µW |
+
+![Average power calculation](./images/avgpower.png)
+This analysis validates the low-power operation of the proposed VCO design, confirming its suitability for mixed-signal and RF system integration.
+
 ## 📊 Performance Comparison
 
 | **Parameter** | **REF (1)** | **REF (2)** | **REF (3)** | **REF (4)** | **This Work** |
@@ -231,25 +339,6 @@ Unlike semi-custom or synthesized designs, this project follows a **full-custom 
 | **Frequency Range** | 22–315 MHz | 342.42 MHz–1.683 GHz | 165.25 MHz–2.3073 GHz | 30 MHz–1.13 GHz | 81.85 MHz–2.433 GHz |
 | **Power Consumption** | 105.3 mW | 0.2128 mW | 1.2357 mW | 0.361 mW | **28.36 nW** |
 | **Phase Noise** | – | – | −124.52 dBc/Hz @ 1 MHz | −99.70 dBc/Hz @ 1 MHz | **−89.03 dBc/Hz @ 2.4 GHz** |
-
-**Figure:** General flow of full-custom VCO design in Cadence Virtuoso.
-
-### Layout | Post Layout
-![VCO Layout ](layout/vcolayout.png)
-
-## Simulation Results
-
-### Transient Analysis with power
-![VCO Transient Response](simulations/vco_graph.png)
-
-
-
-### Time vs Control Voltage
-![VCO Transient Response](simulations/o-pgraph.bmp)
-
-## Average power calculation
-![Average power calculation](images/avgpower.pnj)
-
 ## 🎓 Academic Context
 
 Course: VLSI System Design (EC-307)
@@ -328,17 +417,38 @@ This project provided a comprehensive understanding of **analog VLSI design prin
 - 
 **✅ Note:**  
 The design flow was executed entirely in **Cadence Virtuoso**, following a **full-custom transistor-level approach** from schematic to post-layout simulation.
+## 📬 Contact
+Manojkumar Dannan
 
-## Author
-**Manojkumar86390**  
-VLSI Design Engineer
+✉️ Email: scs588131@gmai.com
+
+💼 LinkedIn: [linkedin.com/in/yourprofile](https://www.linkedin.com/in/manoj-kumar-52600a2a8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
+
+🐱 GitHub: [github.com/yourgithub](https://github.com/Manojkumar86390?tab=overview&from=2025-07-01&to=2025-07-31)
+
+⚙️ website profile : https://student-portfolio-we-g0bj.bolt.host/
+
+🎓 Institution: [  Indian Institute of Information Technology Design and Manufacturing, Kurnool]
+For any VLSI-related discussions, collaborations, or queries regarding this 180nm Full Custom VCO project, feel free to reach out.
+
+🙏 Acknowledgments
+
+This project was completed with support and guidance from:
+
+## 🙏 Acknowledgements
+
+- **Dr. P. Ranga Babu** — Course Instructor and Project Guide, Department of ECE, IIITDM Kurnool  
+- **IIITDM Kurnool** — For providing computational resources and research infrastructure  
+- **Cadence Design Systems** — For access to industry-standard EDA tools used in VLSI design and simulation  
+- **Open Source Community** — For valuable educational resources and technical documentation  
+- **Research Community** — For foundational work and insights into analog circuit and oscillator design  
+
+
+
+## 👨‍🎓 Author
+-  **Manoj kumar Dannana**
+-  **Roll no : 123ec0020**
+-  **Department of Electronics and Communication Engineering**
+-  **IIITDM KURNOOL**
 ---
-
-<p align="center">
-  <img src="assets/college_logo.png" alt="College Logo" width="150"/>
-  <br>
-  <b>Department of Electronics and Communication Engineering</b><br>
-  <b>[IIITDM KURNOOL]</b>
-</p>
-
 
