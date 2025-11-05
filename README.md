@@ -1,4 +1,11 @@
 # VCO Oscillator Design (180 nm CMOS)
+# Design and Implementation of 5-Stage VCO Using 180 nm Full-Custom Design
+
+![Category](https://img.shields.io/badge/Category-Analog%20VLSI-blue)
+![Type](https://img.shields.io/badge/Design-Full%20Custom-green)
+![Technology](https://img.shields.io/badge/Technology-180nm-orange)
+![Tool](https://img.shields.io/badge/Tool-Cadence%20Virtuoso-red)
+![Simulation](https://img.shields.io/badge/Simulation-Spectre-lightgrey)
 
 ## Overview
 This project presents the design, simulation, and layout of a Voltage-Controlled Oscillator (VCO) implemented in 180 nm CMOS technology using Cadence Virtuoso.
