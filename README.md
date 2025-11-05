@@ -335,7 +335,7 @@ VLSI Design Engineer
   <img src="assets/college_logo.png" alt="College Logo" width="150"/>
   <br>
   <b>Department of Electronics and Communication Engineering</b><br>
-  <b>[Your College Name]</b>
+  <b>[IIITDM KURNOOL]</b>
 </p>
 
 
