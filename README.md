@@ -105,6 +105,23 @@ Unlike semi-custom or synthesized designs, this project follows a **full-custom 
 | Frequency Range        | 500 MHz - 2.5 GHz         |
 | Power Consumption      | 0.5 mW @ 1.8 GHz          |
 
+## 📖 Working Principle and Observations
+**🔍 How and Why the VCO Works**
+A Voltage-Controlled Oscillator (VCO) is a circuit that generates a periodic oscillating signal (output frequency) whose value depends on an input control voltage (V<sub>ctrl</sub>).
+
+- The circuit consists of five inverter stages connected in a feedback loop.
+- Each inverter introduces a propagation delay, and the total delay across all stages determines the oscillation period.
+- For sustained oscillation, the loop gain must be ≥ 1, and the total phase shift around the loop must be 180° × (odd number of stages) — satisfying the Barkhausen criterion.
+- The current-starving transistors (MP1–MP5, MN1–MN5) act as variable current sources that limit the current through each inverter stage.
+- When the control voltage (V<sub>ctrl</sub>) increases:
+*The current through the starving transistors increases,*
+*The inverter delay decreases,*
+*Hence, the oscillation frequency increases.*
+- Conversely, when V<sub>ctrl</sub> decreases, the delay increases, resulting in a lower output frequency.
+
+Thus, by modulating V<sub>ctrl</sub>, the circuit produces a variable-frequency output signal — the key characteristic of a VCO.
+
+
 ## Circuit Schematic | Pre Layout
 
 ![VCO Schematic Diagram ](schematic/vcoschematic.png)
