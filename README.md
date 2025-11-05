@@ -245,7 +245,7 @@ Unlike semi-custom or synthesized designs, this project follows a **full-custom 
 
 
 ### Time vs Control Voltage
-![VCO Transient Response](simulations/o-pgraph.png)
+![VCO Transient Response](simulations/o-pgraph.bmp)
 
 ## 🎓 Academic Context
 
