@@ -239,13 +239,16 @@ Unlike semi-custom or synthesized designs, this project follows a **full-custom 
 
 ## Simulation Results
 
-### Transient Analysis
+### Transient Analysis with power
 ![VCO Transient Response](simulations/vco_graph.png)
 
 
 
 ### Time vs Control Voltage
 ![VCO Transient Response](simulations/o-pgraph.bmp)
+
+## Average power calculation
+![Average power calculation](images/avgpower.pnj)
 
 ## 🎓 Academic Context
 
