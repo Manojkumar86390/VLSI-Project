@@ -1,4 +1,3 @@
-# VCO Oscillator Design (180 nm CMOS)
 # Design and Implementation of 5-Stage VCO Using 180 nm Full-Custom Design
 
 ![Category](https://img.shields.io/badge/Category-Analog%20VLSI-blue)
@@ -10,6 +9,21 @@
 ## Overview
 This project presents the design, simulation, and layout of a Voltage-Controlled Oscillator (VCO) implemented in 180 nm CMOS technology using Cadence Virtuoso.
 
+### 🧩 **Highlights**
+- ⚙️ Full-custom transistor-level design using Cadence Virtuoso  
+- 📈 Post-layout simulation verified frequency-voltage characteristics  
+- 🧠 Optimized for low-power and wide tuning range  
+- 🧾 Verified through DRC, LVS, and parasitic extraction  
+- 🔍 Realistic frequency tuning observed via transient analysis
+
+### 🔗 **Contents**
+- [🧠 Introduction](#project-overview)  
+- [🧰 Tools & Technologies](#tools--technologies)  
+- [📊 Performance Comparison](#performance-comparison)  
+- [📈 Output Characteristics](#output-characteristics)  
+- [📘 Learning Outcomes](#learning-outcomes)  
+- [❓ FAQ](#-frequently-asked-questions-faq)
+  
 ## 🧩 Abstract
 This project presents the **full-custom design and implementation of a Voltage-Controlled Oscillator (VCO)** using the **180 nm CMOS technology node**.  
 The VCO is a crucial building block in PLLs (Phase-Locked Loops), frequency synthesizers, and clock generation systems.  
@@ -315,5 +329,13 @@ The design flow was executed entirely in **Cadence Virtuoso**, following a **ful
 ## Author
 **Manojkumar86390**  
 VLSI Design Engineer
+---
+
+<p align="center">
+  <img src="assets/college_logo.png" alt="College Logo" width="150"/>
+  <br>
+  <b>Department of Electronics and Communication Engineering</b><br>
+  <b>[Your College Name]</b>
+</p>
 
 
