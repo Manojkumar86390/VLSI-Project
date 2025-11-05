@@ -244,8 +244,8 @@ Unlike semi-custom or synthesized designs, this project follows a **full-custom 
 
 
 
-### Frequency vs Control Voltage
-![Frequency Tuning Characteristics](simulations/vco_frequency_vs_vctrl.png)
+### Time vs Control Voltage
+![VCO Transient Response](simulations/o-pgraph.png)
 
 ## 🎓 Academic Context
 
